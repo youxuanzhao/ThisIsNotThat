@@ -1,10 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://dij7hini7s6l4"]
 
-[ext_resource type="Texture2D" uid="uid://dqti1xubxv10y" path="res://Assets/Oldman-Sheet.png" id="1_70w4f"]
+[ext_resource type="PackedScene" uid="uid://de2bs2nipy3lp" path="res://player.tscn" id="1_fsqbp"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Level" type="Node2D"]
+position = Vector2(-268, -88)
 
-[node name="Oldman-sheet" type="Sprite2D" parent="."]
-position = Vector2(78, 41)
-texture = ExtResource("1_70w4f")
-hframes = 5
+[node name="Node2D" parent="." instance=ExtResource("1_fsqbp")]
+position = Vector2(268, 110)
