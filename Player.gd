@@ -1,5 +1,8 @@
 extends Sprite2D
 
+var velocity : Vector2 = Vector2.ZERO;
+@export var acceleration : float = 20;
+@export var drag : float = 50;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +21,36 @@ func _process(delta):
 			region_rect.position.x = 0
 			i = 0
 		counter = 0.3
+		
+	_walk(delta)
+	
 	if Input.is_action_just_pressed("Fire"):
-		var n = $"../Laser".duplicate() as Sprite2D
-		n.set_visible(true)
-		$"../".add_child(n)
+		_fire()
+
+		
+func _walk(delta):
+	var x : float = 0
+	var y : float = 0
+	
+	if Input.is_action_pressed("ui_right"):
+		x += 10
+	if Input.is_action_pressed("ui_left"):
+		x -= 10
+	if Input.is_action_pressed("ui_up"):
+		y -= 10
+	if Input.is_action_pressed("ui_down"):
+		y += 10
+		
+	if x == 0 && y == 0:
+		velocity = velocity.move_toward(Vector2.ZERO,delta * drag);
+	else:
+		velocity = velocity.move_toward(Vector2(x,y),delta * acceleration)
+	
+	$"./".position += velocity * delta
+	
+	
+func _fire():
+	var n = $"../Laser".duplicate() as Sprite2D
+	n.set_visible(true)
+	n.position = $"./".position
+	$"../".add_child(n)

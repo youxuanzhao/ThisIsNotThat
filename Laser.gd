@@ -7,7 +7,6 @@ var stage = 2
 var stage_i = 0.1
 
 func _ready():
-	position.x = 0
 	stage = 2
 	stage_i = 0.1
 	
