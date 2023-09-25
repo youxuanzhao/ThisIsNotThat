@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dij7hini7s6l4"]
+
+[ext_resource type="Texture2D" uid="uid://dqti1xubxv10y" path="res://Assets/Oldman-Sheet.png" id="1_70w4f"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Oldman-sheet" type="Sprite2D" parent="."]
+position = Vector2(78, 41)
+texture = ExtResource("1_70w4f")
+hframes = 5
