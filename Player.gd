@@ -18,3 +18,7 @@ func _process(delta):
 			region_rect.position.x = 0
 			i = 0
 		counter = 0.3
+	if Input.is_action_just_pressed("Fire"):
+		var n = $"../Laser".duplicate() as Sprite2D
+		n.set_visible(true)
+		$"../".add_child(n)

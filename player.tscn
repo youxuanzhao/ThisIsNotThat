@@ -1,19 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://de2bs2nipy3lp"]
+[gd_scene load_steps=5 format=3 uid="uid://de2bs2nipy3lp"]
 
 [ext_resource type="Texture2D" uid="uid://dqti1xubxv10y" path="res://Assets/Oldman-Sheet.png" id="1_4w28o"]
 [ext_resource type="Script" path="res://Player.gd" id="2_5bysg"]
 [ext_resource type="Texture2D" uid="uid://bc5scfb4gqbf8" path="res://Assets/laser-Sheet.png" id="2_he2dv"]
+[ext_resource type="Script" path="res://Laser.gd" id="4_rl77t"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" type="Sprite2D" parent="."]
-position = Vector2(34, 24)
+position = Vector2(0, 1)
 texture = ExtResource("1_4w28o")
 region_enabled = true
 region_rect = Rect2(0, 0, 17, 17)
 script = ExtResource("2_5bysg")
 
 [node name="Laser" type="Sprite2D" parent="."]
-position = Vector2(261, 14)
-scale = Vector2(3.875, 3.875)
+visible = false
+position = Vector2(0, 1)
+scale = Vector2(1.205, 1)
 texture = ExtResource("2_he2dv")
+region_enabled = true
+region_rect = Rect2(32, 0, 16, 16)
+script = ExtResource("4_rl77t")

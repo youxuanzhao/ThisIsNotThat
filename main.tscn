@@ -5,5 +5,15 @@
 [node name="Level" type="Node2D"]
 position = Vector2(-268, -88)
 
-[node name="Node2D" parent="." instance=ExtResource("1_fsqbp")]
-position = Vector2(268, 110)
+[node name="Player" parent="." instance=ExtResource("1_fsqbp")]
+position = Vector2(298, 124)
+
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Node2D"]
+offset_left = 618.0
+offset_top = 294.0
+offset_right = 779.0
+offset_bottom = 320.0
+text = "Press <space> to fire"
