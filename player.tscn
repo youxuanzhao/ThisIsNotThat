@@ -14,9 +14,8 @@ region_enabled = true
 region_rect = Rect2(0, 0, 17, 17)
 script = ExtResource("2_5bysg")
 
-[node name="Laser" type="Sprite2D" parent="."]
+[node name="Laser" type="Sprite2D" parent="Player"]
 visible = false
-position = Vector2(0, 1)
 scale = Vector2(1.205, 1)
 texture = ExtResource("2_he2dv")
 region_enabled = true

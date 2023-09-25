@@ -1,8 +1,10 @@
 extends Sprite2D
 
 var velocity : Vector2 = Vector2.ZERO;
+@export var speed : float = 100;
 @export var acceleration : float = 20;
 @export var drag : float = 50;
+@export var laserPrefab : Node2D;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,24 +35,24 @@ func _walk(delta):
 	var y : float = 0
 	
 	if Input.is_action_pressed("ui_right"):
-		x += 10
+		x += speed
 	if Input.is_action_pressed("ui_left"):
-		x -= 10
+		x -= speed
 	if Input.is_action_pressed("ui_up"):
-		y -= 10
+		y -= speed
 	if Input.is_action_pressed("ui_down"):
-		y += 10
+		y += speed
 		
 	if x == 0 && y == 0:
 		velocity = velocity.move_toward(Vector2.ZERO,delta * drag);
 	else:
 		velocity = velocity.move_toward(Vector2(x,y),delta * acceleration)
 	
-	$"./".position += velocity * delta
+	position += velocity * delta
 	
 	
 func _fire():
-	var n = $"../Laser".duplicate() as Sprite2D
+	var n = laserPrefab.duplicate() as Sprite2D
 	n.set_visible(true)
-	n.position = $"./".position
-	$"../".add_child(n)
+	n.position = position
+	get_parent().add_child(n)

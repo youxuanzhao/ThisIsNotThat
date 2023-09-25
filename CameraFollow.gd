@@ -1,6 +1,6 @@
 extends Camera2D
 
-
+@export var follownode : Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -9,4 +9,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	print_debug($"./".position)
-	position = position.move_toward($"./Node2D/Player".position,delta * 100)
+	position = position.move_toward(follownode.position,delta * 10 * (follownode.position - position).length())
