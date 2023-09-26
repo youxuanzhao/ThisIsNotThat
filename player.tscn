@@ -1,18 +1,64 @@
-[gd_scene load_steps=5 format=3 uid="uid://de2bs2nipy3lp"]
+[gd_scene load_steps=11 format=3 uid="uid://de2bs2nipy3lp"]
 
 [ext_resource type="Texture2D" uid="uid://dqti1xubxv10y" path="res://Assets/Oldman-Sheet.png" id="1_4w28o"]
 [ext_resource type="Script" path="res://Player.gd" id="2_5bysg"]
 [ext_resource type="Texture2D" uid="uid://bc5scfb4gqbf8" path="res://Assets/laser-Sheet.png" id="2_he2dv"]
 [ext_resource type="Script" path="res://Laser.gd" id="4_rl77t"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hpml"]
+atlas = ExtResource("1_4w28o")
+region = Rect2(0, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi4i7"]
+atlas = ExtResource("1_4w28o")
+region = Rect2(17, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6gmf"]
+atlas = ExtResource("1_4w28o")
+region = Rect2(34, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uut2l"]
+atlas = ExtResource("1_4w28o")
+region = Rect2(51, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30lgi"]
+atlas = ExtResource("1_4w28o")
+region = Rect2(68, 0, 17, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6nl8x"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hpml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi4i7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6gmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uut2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30lgi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="Node2D"]
 
-[node name="Player" type="Sprite2D" parent="."]
+[node name="Player" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
-texture = ExtResource("1_4w28o")
-region_enabled = true
-region_rect = Rect2(0, 0, 17, 17)
+sprite_frames = SubResource("SpriteFrames_6nl8x")
+frame = 3
+frame_progress = 0.49542
 script = ExtResource("2_5bysg")
+
+[node name="Timer" type="Timer" parent="Player"]
 
 [node name="Laser" type="Sprite2D" parent="."]
 visible = false
