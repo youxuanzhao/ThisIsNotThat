@@ -59,6 +59,8 @@ frame_progress = 0.49542
 script = ExtResource("2_5bysg")
 
 [node name="Timer" type="Timer" parent="Player"]
+wait_time = 0.3
+autostart = true
 
 [node name="Laser" type="Sprite2D" parent="."]
 visible = false
@@ -68,3 +70,5 @@ texture = ExtResource("2_he2dv")
 region_enabled = true
 region_rect = Rect2(32, 0, 16, 16)
 script = ExtResource("4_rl77t")
+
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]

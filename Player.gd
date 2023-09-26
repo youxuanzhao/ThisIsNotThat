@@ -1,11 +1,10 @@
 extends AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
+@onready var timer = $Timer as Timer
+
 func _ready():
 	play("default")
-	var timer = $Timer as Timer
-	timer.timeout.connect(do_fire)
-	timer.start(0.3)
 
 
 const speed = 30
@@ -30,3 +29,7 @@ func _process(delta):
 
 	if Input.is_action_pressed("ui_down"):
 		position.y += delta * speed
+
+
+func _on_timer_timeout():
+	do_fire()
