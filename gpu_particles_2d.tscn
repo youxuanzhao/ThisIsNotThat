@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2xki2qmhmnlc"]
+
+[ext_resource type="Texture2D" uid="uid://bc5scfb4gqbf8" path="res://Assets/laser-Sheet.png" id="2_qaog3"]
+
+[sub_resource type="Gradient" id="Gradient_xt4go"]
+colors = PackedColorArray(0, 0.4675, 0.85, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_o3ciq"]
+gradient = SubResource("Gradient_xt4go")
+
+[sub_resource type="Curve" id="Curve_p7b27"]
+min_value = -1.0
+bake_resolution = 200
+_data = [Vector2(0.243122, -0.751734), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_x1482"]
+curve = SubResource("Curve_p7b27")
+
+[sub_resource type="Curve" id="Curve_ol5xv"]
+min_value = -500.0
+max_value = 500.0
+_data = [Vector2(0.0285536, -280.577), 0.0, 0.0, 0, 0, Vector2(0.968424, 349.398), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_llk8w"]
+curve = SubResource("Curve_ol5xv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i04h0"]
+lifetime_randomness = 0.09
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 20.0
+emission_ring_radius = 120.0
+emission_ring_inner_radius = 2.08165e-12
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+spread = 86.21
+flatness = 0.17
+gravity = Vector3(2, 10, 2.08165e-12)
+initial_velocity_max = 100.0
+orbit_velocity_min = 2.08167e-14
+orbit_velocity_max = 5.0
+orbit_velocity_curve = SubResource("CurveTexture_llk8w")
+radial_accel_max = 8.42
+tangential_accel_max = 14.74
+damping_max = 4.737
+angle_max = 37.9
+color = Color(0.254902, 1, 1, 1)
+color_ramp = SubResource("GradientTexture1D_o3ciq")
+hue_variation_max = 0.22
+hue_variation_curve = SubResource("CurveTexture_x1482")
+turbulence_noise_strength = 0.0
+anim_speed_max = 0.76
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_i04h0")
+texture = ExtResource("2_qaog3")
+preprocess = 3.03
+explosiveness = 0.15
+randomness = 0.13
+trail_enabled = true
+trail_sections = 12
+trail_section_subdivisions = 12

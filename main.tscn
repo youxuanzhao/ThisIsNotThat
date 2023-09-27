@@ -8,7 +8,7 @@ position = Vector2(-268, -88)
 script = ExtResource("1_sdyr5")
 
 [node name="Player" parent="." instance=ExtResource("1_fsqbp")]
-position = Vector2(298, 124)
+position = Vector2(297, 124)
 
 [node name="Node2D" type="Node2D" parent="."]
 scale = Vector2(0.5, 0.5)
