@@ -58,13 +58,14 @@ frame = 3
 frame_progress = 0.49542
 script = ExtResource("2_5bysg")
 
+
 [node name="Timer" type="Timer" parent="Player"]
 wait_time = 0.3
 autostart = true
 
 [node name="Laser" type="Sprite2D" parent="."]
+
 visible = false
-position = Vector2(0, 1)
 scale = Vector2(1.205, 1)
 texture = ExtResource("2_he2dv")
 region_enabled = true
